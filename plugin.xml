@@ -14,7 +14,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <engines>
         <engine name="cordova" version=">=7.1.0"/>
-        <engine name="cordova-android" version=">=7.0.0"/>
+        <engine name="cordova-android" version="^6.4.0"/>
         <engine name="cordova-ios" version=">=4.3.0"/>
     </engines>
 
@@ -53,6 +53,5 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <source-file src="src/android/FirebaseAnalyticsPlugin.java" target-dir="src/com/google/cordova/firebase/analytics/" />
     </platform>
 
-    <hook src="resources/copy_service_files.js" type="before_build" />
-
+    <hook src="resources/copy_service_files.js" type="before_prepare" />
 </plugin>
