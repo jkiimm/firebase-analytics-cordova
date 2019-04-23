@@ -17,10 +17,16 @@ const rethrow = func => err => {
 }
 
 const verboseCopy = (src, dest) => {
-	console.log(`Copying ${src} to ${dest}...`);
-	return copyFile(src, dest).then(() => {
-		console.log(`Successfully copied to ${dest}`);
-	})
+  console.log(`Copying ${src} to ${dest}...`);
+  const dir = path.dirname(dest)
+
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir)
+  }
+
+  return copyFile(src, dest, fs.constants.COPYFILE_FICLONE).then(() => {
+    console.log(`Successfully copied to ${dest}`);
+  })
 }
 
 const addConfigToXcode = (name, root) => {
@@ -74,7 +80,7 @@ function getName (ctx) {
   const fs = require('fs');
   const path = require('path');
   const config_xml = path.join(ctx.opts.projectRoot, 'config.xml');
-  const et = ctx.requireCordovaModule('elementtree'); 
+  const et = ctx.requireCordovaModule('elementtree');
   const data = fs.readFileSync(config_xml).toString();
   const etree = et.parse(data);
 
