@@ -8,7 +8,7 @@ const copyFile = util.promisify(fs.copyFile);
 const ANDROID_SERVICE_FILE = "google-services.json"
 const IOS_SERVICE_FILE = "GoogleService-Info.plist"
 
-const ANDROID_DIR = "platforms/android"
+const ANDROID_DIR = "platforms/android/app"
 const IOS_DIR = "platforms/ios"
 
 const rethrow = func => err => {
