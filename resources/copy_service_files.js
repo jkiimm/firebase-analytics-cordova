@@ -79,8 +79,8 @@ module.exports = ctx => {
 function getName (ctx) {
   const fs = require('fs');
   const path = require('path');
+  const et = require('elementtree');
   const config_xml = path.join(ctx.opts.projectRoot, 'config.xml');
-  const et = ctx.requireCordovaModule('elementtree');
   const data = fs.readFileSync(config_xml).toString();
   const etree = et.parse(data);
 

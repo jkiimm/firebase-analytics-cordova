@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "xcode": "^2.0.0"
+  },
+  "devDependencies": {
+    "elementtree": "^0.1.7"
   }
 }
